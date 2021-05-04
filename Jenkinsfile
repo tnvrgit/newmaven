@@ -1,4 +1,5 @@
 @Library('shared-lib') _
+import com.tnvr
 
 pipeline {
 	agent any
@@ -11,7 +12,7 @@ pipeline {
 		stage('Git Checkout 2') {
 			steps{
 				script{
-				def chk = new gitCheckout();
+				def chk = new com.tnvr.gitCheckout();
 				chk.checkOutFrom('https://github.com/tnvrgit/test');
 				}
 			}
