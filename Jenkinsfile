@@ -20,10 +20,10 @@ pipeline {
 			steps{
 			
 				script{
-					echo ${mvn -v}
-					echo ${java -v}
+					mvn -v
+					java -v
 				
-			}
+				}
 			}
 		}
 	}
