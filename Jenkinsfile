@@ -20,8 +20,7 @@ pipeline {
 			steps{
 			
 				script{
-					mvn -v
-					java -v
+					maven();
 				
 				}
 			}
