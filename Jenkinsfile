@@ -17,11 +17,13 @@ pipeline {
 			}
 		}
 		stage('Check Pre requisites') {
+			steps{
 			withMaven{
 				script{
 					echo ${mvn -v}
 					echo ${java -v}
 				}
+			}
 			}
 		}
 	}
