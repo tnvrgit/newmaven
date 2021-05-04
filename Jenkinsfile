@@ -7,7 +7,7 @@ pipeline {
 	stages {
 		stage('Git Checkout') {
 			steps{
-				checkOutFrom 'https://github.com/tnvrgit/newmaven' 
+				gitCheckout('https://github.com/tnvrgit/newmaven')
 			}
 		}
 	}
