@@ -16,12 +16,17 @@ pipeline {
 				}
 			}
 		}
-		stage('Check Pre requisites') {
+		stage('Run Maven') {
 			steps{
-			
 				script{
-					maven();
-				
+					maven('clean package');
+				}
+			}
+		}
+		stage('Run Sonar') {
+			steps{
+				script{
+					sonar('Demo-project');
 				}
 			}
 		}
