@@ -1,7 +1,5 @@
 @Library('shared-lib') _
 
-import com.tnvr.shared-lib.gitCheckout
-
 pipeline {
 	agent any
 	stages {
