@@ -1,5 +1,5 @@
 @Library('shared-lib') _
-import com.tnvr
+
 
 pipeline {
 	agent any
