@@ -25,9 +25,12 @@ pipeline {
 		}
 		stage('Run Sonar') {
 			steps{
-				script{
-					sonar('Demo-project', 'myapp/pom.xml');
+				withMaven(maven: 'maven-3.3.9') {
+                    			withSonarQubeEnv('SonarQube') {
+                        			sh 'mvn sonar:sonar -Dsonar.projectKey=Demo-project -Dsonar.host.url=http://192.168.40.128:9001 -Dsonar.login=15e8fbeab0615b42bc7155ab446639aaeabe87fe -f my-app/pom.xml'
+					}
 				}
+                    		
 			}
 		}
 	}
