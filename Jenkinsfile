@@ -5,7 +5,7 @@ pipeline {
 	agent any
 	tools { 
         	maven 'Maven3.6.3' 
-        	jdk 'jdk1.8' 
+        	jdk 'jdk9' 
     	}	
 	stages {
 		stage('Git Checkout') {
@@ -13,6 +13,14 @@ pipeline {
 				script{
 				def chk = new com.tnvr.gitCheckout();
 				chk.checkOutFrom('https://github.com/tnvrgit/test');
+				}
+			}
+		}
+		stage('Check Pre requisites') {
+			withMaven{
+				script{
+					echo ${mvn -v}
+					echo ${java -v}
 				}
 			}
 		}
