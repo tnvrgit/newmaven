@@ -1,0 +1,20 @@
+@Library('shared-lib') _
+
+pipeline {
+	agent any
+	tools {
+	 maven 'maven-3.8'
+	 jdk 'jdk11'
+	}
+	
+	stages {
+		stage('Git checkout'){
+			steps{
+				script{
+				def chk = new com.tnvr.gitCheckout();
+				chk.checkOutFrom('https://github.com/tnvrgit/test');
+				}
+			}
+		}
+	}
+}
